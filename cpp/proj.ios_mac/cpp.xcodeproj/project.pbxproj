@@ -477,6 +477,9 @@
 					"\"PluginLeaderboard.framework\"",
 					"\"PluginAchievement.framework\"",
 				);
+				OTHER_CFLAGS = (
+					-DSDKBOX_ENABLED,
+				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
@@ -520,6 +523,9 @@
 					"\"PluginIAP.framework\"",
 					"\"PluginLeaderboard.framework\"",
 					"\"PluginAchievement.framework\"",
+				);
+				OTHER_CFLAGS = (
+					-DSDKBOX_ENABLED,
 				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
