@@ -24,4 +24,6 @@ namespace sdkbox
     jsval std_vector_string_to_jsval(JSContext* cx, const std::vector<std::string>& arr);
     JSBool jsval_to_std_vector_string(JSContext* cx, jsval v, std::vector<std::string>* ret);
 #endif
+    jsval std_map_string_int_to_jsval(JSContext* cx, const std::map<std::string, int>& v);
+    jsval std_map_string_string_to_jsval(JSContext* cx, const std::map<std::string, std::string>& v);
 }
