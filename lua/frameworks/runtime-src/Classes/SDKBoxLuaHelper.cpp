@@ -646,3 +646,36 @@ bool luaval_to_ccluavaluevector(lua_State* L, int lo, LuaValueArray* ret, const 
 
     return ok;
 }
+
+#if COCOS2D_VERSION <= 0x00030600
+bool luaval_to_std_map_string_string(lua_State* L, int lo, std::map<std::string, std::string>* ret, const char* funcName) {
+    if (nullptr == L || nullptr == ret || lua_gettop(L) < lo)
+        return false;
+    
+    tolua_Error tolua_err;
+    bool ok = true;
+    if (!tolua_istable(L, lo, 0, &tolua_err)) {
+        ok = false;
+    }
+    
+    if (!ok)
+        return ok;
+    
+    lua_pushnil(L);
+    std::string key;
+    std::string value;
+    while (lua_next(L, lo) != 0) {
+        if (lua_isstring(L, -2) && lua_isstring(L, -1)) {
+            if (luaval_to_std_string(L, -2, &key) && luaval_to_std_string(L, -1, &value)) {
+                (*ret)[key] = value;
+            }
+        } else {
+            //CCASSERT(false, "string type is needed");
+        }
+        
+        lua_pop(L, 1);
+    }
+    
+    return ok;
+}
+#endif

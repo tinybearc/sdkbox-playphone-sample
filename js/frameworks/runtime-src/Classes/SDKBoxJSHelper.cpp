@@ -226,6 +226,71 @@ namespace sdkbox
 
         return JS_TRUE;
     }
+
 #endif
+    
+    jsval std_map_string_int_to_jsval(JSContext* cx, const std::map<std::string, int>& v) {
+        JS::RootedObject proto(cx);
+        JS::RootedObject parent(cx);
+#if defined(MOZJS_MAJOR_VERSION) and MOZJS_MAJOR_VERSION >= 26
+        JS::RootedObject jsRet(cx, JS_NewObject(cx, NULL, proto, parent));
+#else
+        JSObject *jsRet = JS_NewObject(cx, NULL, NULL, NULL);
+#endif
+        
+        for (auto iter = v.begin(); iter != v.end(); ++iter) {
+#if defined(MOZJS_MAJOR_VERSION) and MOZJS_MAJOR_VERSION >= 26
+            JS::RootedValue element(cx);
+#else
+            jsval element;
+#endif
+            
+            std::string key = iter->first;
+            int val = iter->second;
+            
+            element = INT_TO_JSVAL(val);
+
+            if (!key.empty()) {
+#if defined(MOZJS_MAJOR_VERSION) and MOZJS_MAJOR_VERSION >= 26
+                JS_SetProperty(cx, jsRet, key.c_str(), element);
+#else
+                JS_SetProperty(cx, jsRet, key.c_str(), &element);
+#endif
+            }
+        }
+        return OBJECT_TO_JSVAL(jsRet);
+    }
+
+    jsval std_map_string_string_to_jsval(JSContext* cx, const std::map<std::string, std::string>& v) {
+        JS::RootedObject proto(cx);
+        JS::RootedObject parent(cx);
+#if defined(MOZJS_MAJOR_VERSION) and MOZJS_MAJOR_VERSION >= 26
+        JS::RootedObject jsRet(cx, JS_NewObject(cx, NULL, proto, parent));
+#else
+        JSObject *jsRet = JS_NewObject(cx, NULL, NULL, NULL);
+#endif
+        
+        for (auto iter = v.begin(); iter != v.end(); ++iter) {
+#if defined(MOZJS_MAJOR_VERSION) and MOZJS_MAJOR_VERSION >= 26
+            JS::RootedValue element(cx);
+#else
+            jsval element;
+#endif
+            
+            std::string key = iter->first;
+            std::string val = iter->second;
+
+            element = std_string_to_jsval(cx, val);
+            
+            if (!key.empty()) {
+#if defined(MOZJS_MAJOR_VERSION) and MOZJS_MAJOR_VERSION >= 26
+                JS_SetProperty(cx, jsRet, key.c_str(), element);
+#else
+                JS_SetProperty(cx, jsRet, key.c_str(), &element);
+#endif
+            }
+        }
+        return OBJECT_TO_JSVAL(jsRet);
+    }
 
 }
