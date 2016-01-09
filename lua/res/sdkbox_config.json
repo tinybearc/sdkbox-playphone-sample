@@ -45,7 +45,9 @@
         "leaderboard": {}
     },
     "playphone": {
+        "skey": "13669982c613ba5c6a600e0029dc0837dbdf3e76",
         "iap": {
+
             "items": {
                 "remove_ads": {
                     "type": "non_consumable",
@@ -62,7 +64,6 @@
                     "id": "com.cocos2dx.plugintest3"
                 }
             },
-            "skey": "13669982c613ba5c6a600e0029dc0837dbdf3e76",
             "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyylDX3WA6408VlvalKEMLJRcnUhlXXZMQJAN4AGUL+CEwxbCNDpcxVLMbnn7OW4eGfpruwGBmf/P+XkVVk3mP928roVvmThZ6NTY0SMl7yJQ7G3IksZ7+OciSMkIcAq8Ttdbte3bp9cnYsd3LUl1PS+di5ajUpay4a222EcDy32YcjEWlOfMp9InL8zKMDYPnTnHRRduAlZP3XSK9RlUAZnwT2Cogce8AYivdwrsUW3x5goYB86aqVs487T4slRY8OH0gksoaGnzL6p7OuCayOW0YJn+yJVceFzmHGkq+IHNkBYkBt1G9YWsyRUT2ynzTNVZ+UhOh7Re1RY+ZtKrBwIDAQAB"
         }
     }
