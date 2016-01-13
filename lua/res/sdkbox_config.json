@@ -47,6 +47,7 @@
     "playphone": {
         "skey": "13669982c613ba5c6a600e0029dc0837dbdf3e76",
         "iap": {
+
             "items": {
                 "remove_ads": {
                     "type": "non_consumable",
