@@ -6,6 +6,6 @@
 2. Active the Game Store (Launch & go to Main Screen)
 3. Configure framework
 
-    - `git submodule update --init`
-    - Or `rm -fr cocos2d-x-3.6-lib && ln -sv /Applications/Cocos/frameworks/cocos2d-x-3.6 cocos2d-x-3.6-lib`
+    - `git submodule update --init` (win/mac)
+    - Or `rm -fr cocos2d-x-3.6-lib && ln -sv /Applications/Cocos/frameworks/cocos2d-x-3.6 cocos2d-x-3.6-lib` (mac)
 
