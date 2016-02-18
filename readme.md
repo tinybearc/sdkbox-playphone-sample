@@ -4,13 +4,8 @@
 
 1. Install Playphone Game Store [https://playphone.com/](https://playphone.com/)
 2. Active the Game Store (Launch & go to Main Screen)
+3. Configure framework
 
-Do not want submodule
----
-```
-$ ln -sv /Applications/Cocos/frameworks/cocos2d-x-3.6 cocos2d-x-3.6-lib
-```
+    - `git submodule update --init`
+    - Or `rm -fr cocos2d-x-3.6-lib && ln -sv /Applications/Cocos/frameworks/cocos2d-x-3.6 cocos2d-x-3.6-lib`
 
-Why not with cocos framework 3.8
----
-libcocos2d iOS.a > 100 MB
